@@ -31,8 +31,6 @@
 
 ## 2026-05-24 19:00
 - Cierre de docs: README y 3 ADRs.
-- Se aclaro el nombre oficial del entregable: JOURNAL.md.
-- Se dejo README alineado con ese nombre para evitar confusion en revision.
 
 ## Prompt History (historial aproximado de trabajo)
 1. Necesito migrar este proyecto legacy a fullstack typescript sin romper el seed, por donde empiezo?
