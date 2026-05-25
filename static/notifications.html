@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"><title>Notificaciones</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/catalog.html">Catálogo</a>
+  <a href="/static/inventory.html">Inventario</a>
+  <a href="/static/cart.html">Carrito</a>
+  <a href="/static/sales-history.html">Ventas</a>
+  <a href="/static/purchases.html">Compras</a>
+  <a href="/static/reports.html">Reportes</a>
+  <a href="/static/notifications.html">Notificaciones</a>
+  <a href="/static/refunds.html">Devoluciones</a>
+  <a href="/static/exports.html">Exportes</a>
+</header>
+<div class="container">
+  <h2>Notificaciones</h2>
+  <p>No leídas: <span id="unreadCount">0</span></p>
+  <table>
+    <thead><tr><th>ID</th><th>Tipo</th><th>Mensaje</th><th>Estado</th><th>Fecha</th><th>Acción</th></tr></thead>
+    <tbody id="notifBody"></tbody>
+  </table>
+  <div class="row">
+    <button onclick="Notif.refresh()">Recargar</button>
+  </div>
+
+  <div class="admin-only">
+    <h3>Difusión masiva (admin)</h3>
+    <div class="row">
+      <input id="bMsg" placeholder="Mensaje" style="flex:1">
+      <select id="bKind">
+        <option value="info">info</option>
+        <option value="warn">warn</option>
+        <option value="alert">alert</option>
+        <option value="system">system</option>
+        <option value="marketing">marketing</option>
+      </select>
+      <button onclick="Notif.broadcast()">Difundir</button>
+    </div>
+    <div id="bMsgOut"></div>
+  </div>
+
+  <h3>Crear notificación (a mí)</h3>
+  <div class="row">
+    <input id="cMsg" placeholder="Mensaje" style="flex:1">
+    <select id="cKind">
+      <option value="info">info</option>
+      <option value="warn">warn</option>
+      <option value="alert">alert</option>
+    </select>
+    <button onclick="Notif.create()">Crear</button>
+  </div>
+  <div id="cMsgOut"></div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/notifications.js"></script>
+<script>SESSION.requireLogin(); Notif.init();</script>
+</body></html>

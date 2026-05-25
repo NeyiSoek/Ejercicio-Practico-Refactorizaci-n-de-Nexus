@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Reportes</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/reports.html">Reportes</a>
+</header>
+<div class="container">
+  <h2>Reportes</h2>
+  <p>Total ventas mes actual: <span id="totalSales">...</span></p>
+  <p>Última actualización: <span id="lastUpd">...</span></p>
+
+  <h3>Detalle del mes</h3>
+  <div class="row">
+    <input id="repYear" type="number" value="2025">
+    <input id="repMonth" type="number" min="1" max="12" value="1">
+    <button onclick="Reports.loadMonthly()">Ver mes</button>
+  </div>
+  <table>
+    <thead><tr>
+      <th>Venta</th><th>Usuario</th><th>Tipo cliente</th>
+      <th>Producto</th><th>Cant</th><th>Precio</th>
+      <th>Subtotal efectivo</th><th>Linea c/desc</th><th>Fecha</th>
+    </tr></thead>
+    <tbody id="monthlyBody"></tbody>
+  </table>
+  <p id="monthlyMeta"></p>
+
+  <div class="admin-only">
+    <h3>Exportar (admin)</h3>
+    <div class="row">
+      <select id="repType"><option value="sales">Ventas</option><option value="inventory">Inventario</option></select>
+      <input id="repFilter" value="0">
+      <button onclick="Reports.exportData()">Exportar</button>
+    </div>
+    <pre id="exportOut"></pre>
+  </div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/reports.js?v=2"></script>
+<script>SESSION.requireLogin(); Reports.init();</script>
+</body></html>

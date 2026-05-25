@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"><title>Legacy Nexus</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/catalog.html">Catálogo</a>
+  <a href="/static/inventory.html">Inventario</a>
+  <a href="/static/cart.html">Carrito</a>
+  <a href="/static/sales-history.html">Ventas</a>
+  <a href="/static/purchases.html">Compras</a>
+  <a href="/static/reports.html">Reportes</a>
+  <a href="/static/notifications.html">Notificaciones</a>
+  <a href="/static/refunds.html">Devoluciones</a>
+  <a href="/static/exports.html">Exportes</a>
+  <a href="#" class="admin-only" onclick="adminPanel()">Admin</a>
+  <a href="#" onclick="doLogout()" style="float:right">Salir</a>
+</header>
+<div class="container">
+  <h2>Bienvenido, <span id="who">...</span></h2>
+  <p>Atajos rápidos a los módulos arriba.</p>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script>
+var u = SESSION.requireLogin();
+if (u) document.getElementById('who').innerText = u.username + (u.is_admin ? ' (admin)' : '');
+function doLogout() { SESSION.clear(); window.location.href = '/static/login.html'; }
+function adminPanel() { window.location.href = '/static/reports.html?admin=1'; }
+</script>
+</body></html>

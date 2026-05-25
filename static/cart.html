@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Carrito</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/cart.html">Carrito</a>
+</header>
+<div class="container">
+  <h2>Carrito</h2>
+  <div class="row">
+    <input id="pid" placeholder="Product ID">
+    <input id="qty" type="number" placeholder="Cantidad" value="1">
+    <button onclick="Cart.addItem()">Agregar</button>
+  </div>
+  <table>
+    <thead><tr><th>Producto</th><th>Cant</th><th>Precio</th><th>Subtotal</th></tr></thead>
+    <tbody id="cartBody"></tbody>
+  </table>
+  <p>Subtotal: <span id="subt">0.0000</span></p>
+  <p>IVA (16%): <span id="ivaShow">0.0000</span></p>
+  <p>Total: <span id="totalShow">0.0000</span></p>
+  <button onclick="Cart.checkout()">Confirmar venta</button>
+  <div id="msg"></div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/cart.js"></script>
+<script>SESSION.requireLogin(); Cart.refresh();</script>
+</body></html>

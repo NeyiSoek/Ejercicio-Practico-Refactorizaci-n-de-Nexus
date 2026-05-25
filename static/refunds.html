@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"><title>Devoluciones</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/catalog.html">Catálogo</a>
+  <a href="/static/inventory.html">Inventario</a>
+  <a href="/static/cart.html">Carrito</a>
+  <a href="/static/sales-history.html">Ventas</a>
+  <a href="/static/purchases.html">Compras</a>
+  <a href="/static/reports.html">Reportes</a>
+  <a href="/static/notifications.html">Notificaciones</a>
+  <a href="/static/refunds.html">Devoluciones</a>
+  <a href="/static/exports.html">Exportes</a>
+</header>
+<div class="container">
+  <h2>Devoluciones</h2>
+
+  <h3>Crear devolución</h3>
+  <div class="row">
+    <input id="rSaleId" placeholder="Sale ID" type="number">
+    <input id="rReason" placeholder="Motivo" style="flex:1">
+    <button onclick="Refunds.create()">Solicitar</button>
+  </div>
+  <div id="rCreateOut"></div>
+
+  <h3>Mis devoluciones</h3>
+  <table id="rTable">
+    <thead><tr>
+      <th>ID</th><th>Sale</th><th>Motivo</th>
+      <th>Monto</th><th>IVA</th><th>Total</th>
+      <th>Estado</th><th>Fecha</th><th>Acción</th>
+    </tr></thead>
+    <tbody id="rBody"></tbody>
+  </table>
+  <div class="row">
+    <button onclick="Refunds.refresh()">Recargar</button>
+  </div>
+
+  <div class="admin-only">
+    <h3>Buscar devoluciones (admin)</h3>
+    <div class="row">
+      <input id="rSearch" placeholder="Buscar por motivo">
+      <button onclick="Refunds.search()">Buscar</button>
+    </div>
+    <pre id="rSearchOut"></pre>
+  </div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/refunds.js"></script>
+<script>SESSION.requireLogin(); Refunds.init();</script>
+</body></html>

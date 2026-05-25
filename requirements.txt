@@ -1,0 +1,6 @@
+Flask==1.0.4
+Werkzeug==0.15.6
+Jinja2==2.10.3
+itsdangerous==1.1.0
+MarkupSafe==1.1.1
+click==7.1.2

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Compras</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/purchases.html">Compras</a>
+</header>
+<div class="container">
+  <h2>Compras</h2>
+  <div class="row">
+    <select id="sup"></select>
+    <input id="prod" placeholder="Product ID">
+    <input id="qty" type="number" placeholder="Cantidad">
+    <input id="cost" type="number" step="0.01" placeholder="Costo unitario">
+    <input id="date" placeholder="YYYY-MM-DD">
+    <button onclick="Purchases.submit()">Registrar</button>
+  </div>
+  <div id="msg"></div>
+
+  <h3>Compras recientes</h3>
+  <table>
+    <thead><tr>
+      <th>ID</th><th>Proveedor</th><th>Total</th><th>Recibida</th><th>Status</th><th>Ref. bancaria</th>
+    </tr></thead>
+    <tbody id="purchBody"></tbody>
+  </table>
+  <div class="row"><button onclick="Purchases.refreshList()">Recargar</button></div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/purchases.js?v=2"></script>
+<script>SESSION.requireLogin(); Purchases.loadSuppliers(); Purchases.refreshList();</script>
+</body></html>

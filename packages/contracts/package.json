@@ -1,0 +1,16 @@
+{
+  "name": "@legacy-nexus/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo \"No tests in contracts\""
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

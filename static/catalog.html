@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Catálogo</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/catalog.html">Catálogo</a>
+  <a href="/static/inventory.html">Inventario</a>
+</header>
+<div class="container">
+  <h2>Catálogo</h2>
+  <div class="row">
+    <input id="searchQ" placeholder="Buscar por nombre">
+    <button onclick="CatalogView.search()">Buscar</button>
+    <button onclick="CatalogView.loadAll()">Ver todos</button>
+  </div>
+  <table>
+    <thead><tr><th>SKU</th><th>Nombre</th><th>Precio</th><th>Categoría</th>
+      <th class="admin-only">Acciones</th></tr></thead>
+    <tbody id="catBody"></tbody>
+  </table>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/catalog_view.js"></script>
+<script>SESSION.requireLogin(); CatalogView.loadAll();</script>
+</body></html>

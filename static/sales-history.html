@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Historial de Ventas</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head><body>
+<header>
+  <a href="/static/index.html">Inicio</a>
+  <a href="/static/sales-history.html">Ventas</a>
+</header>
+<div class="container">
+  <h2>Historial</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Total</th><th>Status</th><th>Fecha</th><th>Acción</th></tr></thead>
+    <tbody id="histBody"></tbody>
+  </table>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/session_manager.js"></script>
+<script src="/static/js/sales_history.js"></script>
+<script>var u = SESSION.requireLogin(); if (u) SalesHistory.load(u.user_id);</script>
+</body></html>
